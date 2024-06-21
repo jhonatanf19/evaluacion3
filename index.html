@@ -1,0 +1,124 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script>
+        function cerrarVentana (){
+            window.close();
+        }
+        function calcular() {
+    var practica1 = parseFloat(document.getElementById('practica01').value);
+    var practica2 = parseFloat(document.getElementById('practica02').value);
+    var practica3 = parseFloat(document.getElementById('practica03').value);
+    var exFinal = parseFloat(document.getElementById('exFinal').value);
+
+    if (practica1 > 20 || practica2 > 20 || practica3 > 20 || exFinal > 20) {
+        alert('No se pueden ingresar notas mayores a 20. Por favor, ingrese una nota válida menor o igual a 20.');
+        return;
+    }
+
+    if (isNaN(practica1) || isNaN(practica2) || isNaN(practica3) || isNaN(exFinal)) {
+        alert('Por favor ingrese números válidos para las notas.');
+        return;
+    }
+
+    var promedioPP = ((practica1 + practica2 + practica3) / 3).toFixed(2);
+    document.getElementById('promedioPP').value = promedioPP;
+
+    var promedioFinal = (((practica1 + practica2 + practica3) / 3) * 0.6 + (exFinal * 0.4)).toFixed(2);
+    document.getElementById('promedioFinal').value = promedioFinal;
+
+    var resultado = parseFloat(promedioFinal);
+    if (resultado >= 10) {
+        document.getElementById('resultado').value = 'Aprobado';
+        document.getElementById('resultado').style.color = 'blue';
+    } else {
+        document.getElementById('resultado').value = 'Desaprobado';
+        document.getElementById('resultado').style.color = 'red';
+    }
+}
+
+        
+
+        function limpiar() {
+            document.getElementById('practica01').value = '';
+            document.getElementById('practica02').value = '';
+            document.getElementById('practica03').value = '';
+            document.getElementById('promedioPP').value = '';
+            document.getElementById('exFinal').value = '';
+            document.getElementById('promedioFinal').value = '';
+            document.getElementById('resultado').value = '';
+            document.getElementById('resultado').style.color = '';
+        }
+
+        function imprimir() {   
+            alert('Esta función debería implementarse para imprimir el contenido relevante.');
+        }
+    </script>
+    <footer>                     
+        <table1>
+            <tr1>
+                <td1 style="padding-right: 20px;"><img src="img/certuslogo.png" alt="" width="150px"></td>
+                <td1 style="padding-left: 600px; ">www.certus.edu.pe</td>
+            </tr1>
+        </table>
+    </footer>
+    <title>evaluacion</title>
+    <img class="centrado" src="img/banner-tecnologia.jpg" width="1000">
+    <footer>                     
+        <table1>
+            <tr1>
+                <td1 style="font-size: 25px; color: blue;">Lenguajes para el Desarrollo y Soporte de Sistemas</td>
+                <td1 style= cursor:pointer;padding-left:450px;><img src="img/cerrarsesion.png" alt="Cerrar Sesión" onclick="cerrarVentana()"></td>
+            </tr1>
+            <h3>PROMEDIO FINAL DEL CURSO</h3>
+        </table>
+    </footer>
+    <table>
+        <tr>
+            <td>Practica 01:</td>
+            <td><input type="number" id="practica01" step="0.01" min="0" max="20"></td>
+        </tr>
+        <tr>
+            <td>Practica 02:</td>
+            <td><input type="number" id="practica02" step="0.01" min="0" max="20"></td>
+        </tr>
+        <tr>
+            <td>Practica 03:</td>
+            <td><input type="number" id="practica03" step="0.01" min="0" max="20"></td>
+        </tr>
+        <tr>
+            <td>Promedio PP:</td>
+            <td><input type="text" id="promedioPP" readonly></td>
+        </tr>
+        <tr>
+            <td>Ex. Final:</td>
+            <td><input type="number" id="exFinal" step="0.01" min="0" max="20"></td>
+        </tr>
+        <tr>
+            <td>Promedio Final:</td>
+            <td><input type="text" id="promedioFinal" readonly></td>
+        </tr>
+        <tr>
+            <td>Resultado:</td>
+            <td><input type="text" id="resultado" readonly style="color: blue;"></td>
+        </tr>
+        <tr>
+            <td>
+                <button onclick="calcular();">Calcular</button>
+            </td>
+            <td>
+                <button onclick="limpiar();">Limpiar</button>
+            </td>
+            <td>
+                <button onclick="imprimir();">Imprimir</button>
+            </td>
+        </tr>
+    </table>
+<footer style= "color: white; background:rgb(0, 0, 0);">                        
+    Autor: Jhonatan Frank Portillo <br>
+</footer>
+</head>
+</html>
